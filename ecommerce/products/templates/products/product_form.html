@@ -1,5 +1,31 @@
-<form method='POST'>
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type='submit'>Add Product</button>
-</form>
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        form { margin-bottom: 20px; }
+        input, select, textarea, button { display: block; margin: 10px 0; padding: 5px; }
+        button { cursor: pointer; }
+        a { text-decoration: none; color: blue; margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Add Product</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Product</button>
+    </form>
+
+```
+<a href="{% url 'products:list_products' %}">View Products</a>
+<a href="{% url 'products:category_list' %}">View Categories</a>
+<a href="{% url 'products:home' %}">Home</a>
+```
+
+</body>
+</html>

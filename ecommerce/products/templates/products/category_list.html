@@ -1,22 +1,33 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        a { display: inline-block; margin-bottom: 15px; text-decoration: none; color: blue; }
+        ul { list-style-type: none; padding: 0; }
+        li { margin-bottom: 8px; }
+        strong { font-size: 1.1em; }
+    </style>
 </head>
 <body>
     <h1>Categories</h1>
-<a href="{% url 'products:add_category' %}">Add New Category</a>
+    <a href="{% url 'products:add_category' %}">Add New Category</a>
 
+```
 <ul>
-  {% for category in categories %}
-    <li>
-      <strong>{{ category }}</strong>
-    </li>
-  {% empty %}
-    <li>No categories yet.</li>
-  {% endfor %}
+    {% for category in categories %}
+        <li><strong>{{ category.name }}</strong></li>
+    {% empty %}
+        <li>No categories yet.</li>
+    {% endfor %}
 </ul>
-{% comment %} <a href="{% url 'product_list' %}">View Products</a> {% endcomment %}
+
+<a href="{% url 'products:home' %}">Back to Home</a>
+```
+
 </body>
 </html>
